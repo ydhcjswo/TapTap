@@ -8,22 +8,22 @@
 
 	Features:
 
-		• Low-res hand-painted sunny sky sprites.
-		• Components to control cloud.
-		• Use Unity 2D Sprite features, no required for thirdparty 2d frameworks.
-		• Realtime self strength background and self auto-tile large cloud for any screen resolution.
+		?Low-res hand-painted sunny sky sprites.
+		?Components to control cloud.
+		?Use Unity 2D Sprite features, no required for thirdparty 2d frameworks.
+		?Realtime self strength background and self auto-tile large cloud for any screen resolution.
 
-		• Support all build player platforms.
+		?Support all build player platforms.
 		
 	Compatible:
 
-		• Unity 5.5.1 or higher.
+		?Unity 5.5.1 or higher.
 
 	Note:
 
-		• This package is free version of 2D Sky. See below links for full version.
-		• This package contains low quality textures (good enough for mobiles games).
-		• This package uses dll to store the components.
+		?This package is free version of 2D Sky. See below links for full version.
+		?This package contains low quality textures (good enough for mobiles games).
+		?This package uses dll to store the components.
 
 	Product page:
 	
@@ -83,38 +83,38 @@ Release notes
 
 	Version 1.1.5
 
-		• Update GUI Animator FREE to version 1.1.5.
-		• Unity 5.5.1 or higher compatible.
+		?Update GUI Animator FREE to version 1.1.5.
+		?Unity 5.5.1 or higher compatible.
 
 	Version 1.1.0
 
-		• Update GUI Animator FREE to version 1.1.0.
-		• Unity 5.4.0 and higher compatible.
+		?Update GUI Animator FREE to version 1.1.0.
+		?Unity 5.4.0 and higher compatible.
 
 	Version 1.0.6
 
-		• Update GUI Animator FREE to version 1.0.1.
-		• Unity 4.7.1 and higher compatible.
-		• Unity 5.3.4 and higher compatible.
+		?Update GUI Animator FREE to version 1.0.1.
+		?Unity 4.7.1 and higher compatible.
+		?Unity 5.3.4 and higher compatible.
 
 	Version 1.0.5
 
-		• Add real-time strength capability for background when screen resolution is changed.
-		• Add real-time tile capability for large cloud when screen resolution is changed.
-		• Add cloud Speed multiplier.
-		• Add Full Screen toggle button.
-		• Add Settings button and details panels.
-		• Fixed GUID conflict with other packages.
-		• Rearrange folders.
-		• Update Demo scene.
-		• Use component in dll instead of scripts.
-		• Unity 4.6.9 and higher compatible.
-		• Unity 5.3.2 and higher compatible.
+		?Add real-time strength capability for background when screen resolution is changed.
+		?Add real-time tile capability for large cloud when screen resolution is changed.
+		?Add cloud Speed multiplier.
+		?Add Full Screen toggle button.
+		?Add Settings button and details panels.
+		?Fixed GUID conflict with other packages.
+		?Rearrange folders.
+		?Update Demo scene.
+		?Use component in dll instead of scripts.
+		?Unity 4.6.9 and higher compatible.
+		?Unity 5.3.2 and higher compatible.
 
 	version 1.0 (Initial version)
 
-		• Sunny sky sprites.
-		• Scripts to control cloud.
-		• Use Unity 2D features, doesn't other 2d frameworks.
-		• Supports all player platforms.
-		• Unity and Unity Pro compatible.
+		?Sunny sky sprites.
+		?Scripts to control cloud.
+		?Use Unity 2D features, doesn't other 2d frameworks.
+		?Supports all player platforms.
+		?Unity and Unity Pro compatible.

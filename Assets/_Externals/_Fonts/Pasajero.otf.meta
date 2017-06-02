@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 1ea0a13c6c3bbfb40b7b736ae9917e58
+timeCreated: 1496329577
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Pasajero
+  fontNames:
+  - Pasajero
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

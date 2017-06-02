@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 32cc80bc7ec456147a7aec77778c25d2
+timeCreated: 1496331554
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Diner-Skinny
+  fontNames:
+  - Diner-Skinny
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

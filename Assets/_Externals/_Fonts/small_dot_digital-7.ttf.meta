@@ -1,0 +1,21 @@
+fileFormatVersion: 2
+guid: 57b6051966e2b8c4b903e659cfe30701
+timeCreated: 1496329577
+licenseType: Free
+TrueTypeFontImporter:
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Small Dot Digital-7
+  fontNames:
+  - Small Dot Digital-7
+  fallbackFontReferences: []
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
