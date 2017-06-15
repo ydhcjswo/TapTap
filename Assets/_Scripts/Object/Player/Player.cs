@@ -3,10 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Player : LivingEntity
+
+public class Player : MonoBehaviour
 {
     public float moveSpeed = 5;
 
+	public ParticleSystem Fireball;
+
+	AnimationController AniCtrl = null;
 
 	Slider PlayerHpBar = null;
 	float  PlayerHpState = 0;
@@ -20,10 +24,10 @@ public class Player : LivingEntity
 	float CurrHP = 0;
 	public float PlayerMaxHp = 100;
 
-    float AttackMin = 1f;
-    float AttackMax = 3f;
+    float AttackMin = 5f;
+    float AttackMax = 10f;
 
-    int Monney = 0;
+
 
     bool IsAttack = false;
 
@@ -45,19 +49,24 @@ public class Player : LivingEntity
 	}
 
 
-	private void Start()
+	protected  void Start()
     {
 		//base.Start();
 		//Sword = transform.FindChild("Sword");
 		//Sword.parent = this.transform;
 		//Sword.localPosition = this.transform.position;
+		AniCtrl = this.GetComponentInChildren<AnimationController>();
+		AniCtrl.Set(EndAnimtion);
+
+		SetAnimtion(AniState.Idle);
+
 
 		HP = PlayerMaxHp;
 
 		EnemyScript =  GameObject.Find("Enemy").GetComponent<Enemy>();
 		PlayerHpBar = GameObject.Find("PlayerHP").GetComponent<Slider>();
 	}
-    private void Update()
+     void Update()
     {
 		
         float translation = Input.GetAxisRaw("Horizontal") * moveSpeed;
@@ -72,7 +81,11 @@ public class Player : LivingEntity
 
 	public bool Attack()
 	{
-		if(EnemyScript.GetDamage(Random.Range(AttackMin,AttackMax))==false)
+		SetAnimtion(AniState.Attack);
+
+
+
+		if (EnemyScript.GetDamage(Random.Range(AttackMin,AttackMax))==false)
 		{
 			Invoke("!!,", 2f);
 		}
@@ -81,15 +94,72 @@ public class Player : LivingEntity
 
 	public bool GetDamage(float _damage)
 	{
+		SetAnimtion(AniState.Damage);
+
 		HP = -(_damage);
 		// HP-=_damage 일경우 CurrHP=value; 로 해줘야한다.
-		Debug.Log(HP);
+		//Debug.Log(HP);
 		PlayerHpBar.value = HP / 100;
-		if (HP <= 0) return false;
+		if (HP <= 0)
+		{
+			SetAnimtion(AniState.Dead);
+			return false;
+		}
+		return true;
+	}
+
+	void EndAnimtion()
+	{
+		switch (AniCtrl.State)
+		{
+			case AniState.Attack:
+				SetAnimtion(AniState.Idle);
+				break;
+			case AniState.Damage:
+				SetAnimtion(AniState.Idle);
+				break;
+			case AniState.Skill:
+				SetAnimtion(AniState.Idle);
+				break;
+			case AniState.Defend:
+				SetAnimtion(AniState.Idle);
+				break;
+			case AniState.Dead:
+				break;
+		}
+	}
+	void SetAnimtion(AniState state)
+	{
+		print("Player PlayAni : " + state);
+		AniCtrl.Play(state);
+
+		//if (CurState == state)
+		//	return;
+
+		//CurState = state;
+		//Anim.Play(state.ToString());
+	}
+
+	public bool Defend()
+	{
+		SetAnimtion(AniState.Defend);
 
 		return true;
 	}
 
+	public bool Skill(int skillStackCount)
+	{
+		SetAnimtion(AniState.Skill);
+		ParticleSystem fireball = Instantiate(Fireball);
+		fireball.transform.position = this.transform.position;
+		fireball.Play();
+			if (EnemyScript.GetDamage(Random.Range(AttackMin, AttackMax)*skillStackCount) == false)
+		{
+			Invoke("!!,", 2f);
+		}
+		return true;
+
+	}
 
 	//IEnumerator Attack()
 	//{

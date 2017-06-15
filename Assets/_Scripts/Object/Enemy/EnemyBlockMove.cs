@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class EnemyBlockMove : MonoBehaviour
 {
-	public GameObject SpawnPoint;
-	private float moveSpeed =10f;
+
+
+	private float moveSpeed =20f;
 	//public float lifeTime = 3f;
 
 	Player Player= null;

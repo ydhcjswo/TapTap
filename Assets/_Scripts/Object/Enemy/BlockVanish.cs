@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BlockVanish : MonoBehaviour
 {
+	public ParticleSystem VanishEffect;
+
 	public enum BlockType { None, Player, Mosnter }
 
 	public BlockType type = BlockType.None;
@@ -42,12 +44,16 @@ public class BlockVanish : MonoBehaviour
 	public void OnTouchBlock()
 	{
 		//iTween.ScaleTo(gameObject, iTween.Hash("scale", Vector3.zero, "time", 1.5f, "oncomplete", "OnComplete"));		
-		StartCoroutine(IEScaleTo(Vector3.zero, 1.5f));
+		StartCoroutine(IEScaleTo(Vector3.zero, 0.8f));
+
+		
+
 	}
 
 	IEnumerator IEScaleTo(Vector3 scale, float time)
 	{
 		float delta = 0;
+		bool EffectStarted = false;
 		Vector3 originalScale = transform.localScale;
 		
 		while(delta <= time)
@@ -55,6 +61,21 @@ public class BlockVanish : MonoBehaviour
 			delta += Time.deltaTime;
 			transform.localScale -= (originalScale - scale) * delta / time;
 			yield return new WaitForEndOfFrame();
+
+			if(transform.localScale.x <= Vector3.one.x * 0.1f && !EffectStarted)
+			{
+				EffectStarted = true;
+
+				if (VanishEffect != null)
+				{
+					ParticleSystem particle = Instantiate(VanishEffect);
+					particle.transform.SetParent(transform.parent, false);
+					particle.transform.position = transform.position; //new Vector3(transform.position.x, transform.position.y, particle.transform.position.z);
+					particle.Play();
+
+					Destroy(particle.gameObject, particle.main.duration);//VanishEffect.startLifetime);
+				}
+			}
 		}
 
 		OnComplete();
@@ -62,6 +83,9 @@ public class BlockVanish : MonoBehaviour
 
 	public void OnComplete()
 	{
+		//print("OnComplete : " + gameObject.name);
+		
+
 		ObjectPool.Instance.Release(gameObject);
 	}
 
